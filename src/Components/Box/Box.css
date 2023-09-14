@@ -1,0 +1,19 @@
+.box{
+    background-image: linear-gradient( 135deg, #FDD819 10%, #E80505 70%);
+    border: none;
+    box-shadow: 0 0 10px white;
+    border-radius: 10%;
+    width: 5rem;
+    height: 5rem;
+    font-size: 5em;
+    text-align: center;
+    font-weight: bold;
+    line-height: 5rem;
+    margin: 0.5rem;
+    color: white;
+}
+
+.box:hover{
+    box-shadow: 0 0 40px rgb(6, 209, 223);
+    background-image: linear-gradient(135deg, #E80505 10%, #FDD819 100%);
+}
