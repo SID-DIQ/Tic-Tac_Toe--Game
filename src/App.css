@@ -38,3 +38,18 @@
     font-size: 20px;
   }
 }
+
+
+@media screen and (max-width: 411px) {
+  
+  .button {
+    font-size: 12px; 
+    padding: 6px 12px; 
+    margin: 8px 4px; 
+  }
+
+.winner-message {
+    font-size: 18px; 
+  }
+}
+

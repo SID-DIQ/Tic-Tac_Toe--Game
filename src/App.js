@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './App.css';
 import Board from './Components/Board/Board';
 import ScoreBoard from './Components/ScoreBoard/ScoreBoard';
-';
-
 function App() {
   const [board, setBoard] = useState(Array(9).fill(''));
   const [xIsPlaying, setXIsPlaying] = useState(true);
