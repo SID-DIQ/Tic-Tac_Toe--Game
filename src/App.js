@@ -88,6 +88,10 @@ function App() {
       <button className="button" onClick={restartGame}>
         Restart Game
       </button>
+      <footer>
+    <p>&copy; 2023 BONE CHILLER
+        .</p>
+    </footer>
     </div>
   );
 }
