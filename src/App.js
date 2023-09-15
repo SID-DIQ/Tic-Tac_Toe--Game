@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Board from './Components/Board/Board';
 import ScoreBoard from './Components/ScoreBoard/ScoreBoard';
+';
 
 function App() {
   const [board, setBoard] = useState(Array(9).fill(''));
@@ -10,7 +11,6 @@ function App() {
   const [oScore, setOScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState(null);
-  
 
   const WIN_CONDITIONS = [
     [0, 1, 2],
@@ -33,6 +33,10 @@ function App() {
         setWinner(newWinner);
         setGameOver(true);
         updateScore(newWinner);
+      } else if (updatedBoard.every((box) => box !== '')) {
+        // Check for a draw
+        setGameOver(true);
+        setWinner('Draw');
       }
     }
   };
@@ -78,7 +82,7 @@ function App() {
       <ScoreBoard xScore={xScore} oScore={oScore} />
       {gameOver && winner && (
         <div className="winner-message">
-          {winner === 'X' ? 'X is the winner' : 'O is the winner'}
+          {winner === 'X' ? 'X is the winner' : winner === 'O' ? 'O is the winner' : 'Match is Drawn'}
         </div>
       )}
       <Board board={board} onClick={handleBoxClick} />
@@ -89,11 +93,9 @@ function App() {
         Restart Game
       </button>
       <footer>
-    <p>&copy; 2023 BONE CHILLER
-        .</p>
-    </footer>
+        <p>&copy; 2023 BONE CHILLER.</p>
+      </footer>
     </div>
   );
 }
-
 export default App;
