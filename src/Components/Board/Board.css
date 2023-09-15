@@ -19,7 +19,7 @@
         place-items: center;
         justify-content: center;
         max-width: 100%;
-        gap: 1rem; 
+        gap: 2rem 3.5rem; 
     }
 }
 
@@ -30,7 +30,7 @@
         place-items: center;
         justify-content: center;
         max-width: 100%;
-        gap: 1rem; 
+        gap: 2rem 4.5rem; 
     }
 }
 
@@ -41,6 +41,6 @@
         place-items: center;
         justify-content: center;
         max-width: 100%;
-        gap: 1rem; 
+        gap: 2rem 2.5rem; 
     }
 }
