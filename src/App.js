@@ -8,8 +8,10 @@ function App() {
   const [xIsPlaying, setXIsPlaying] = useState(true);
   const [xScore, setXScore] = useState(0);
   const [oScore, setOScore] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+  const [winner, setWinner] = useState(null);
+  
 
-  const [gameOver , setGameOver] = useState(false);
   const WIN_CONDITIONS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -22,19 +24,24 @@ function App() {
   ];
 
   const handleBoxClick = (boxId) => {
-    if (board[boxId] === '') {
+    if (!gameOver && board[boxId] === '') {
       const updatedBoard = board.map((value, id) => (id === boxId ? (xIsPlaying ? 'X' : 'O') : value));
       setBoard(updatedBoard);
       setXIsPlaying(!xIsPlaying);
-      const winner = checkWinner(updatedBoard);
-      if (winner) {
-        if (winner === 'X') {
-          setXScore(xScore + 1);
-
-        } else {
-          setOScore(oScore + 1);
-        }
+      const newWinner = checkWinner(updatedBoard);
+      if (newWinner) {
+        setWinner(newWinner);
+        setGameOver(true);
+        updateScore(newWinner);
       }
+    }
+  };
+
+  const updateScore = (winningPlayer) => {
+    if (winningPlayer === 'X') {
+      setXScore(xScore + 1);
+    } else {
+      setOScore(oScore + 1);
     }
   };
 
@@ -52,10 +59,35 @@ function App() {
     return null;
   };
 
+  const reset = () => {
+    setGameOver(false);
+    setWinner(null);
+    setBoard(Array(9).fill(''));
+  };
+
+  const restartGame = () => {
+    setGameOver(false);
+    setWinner(null);
+    setBoard(Array(9).fill(''));
+    setXScore(0);
+    setOScore(0);
+  };
+
   return (
     <div className="App">
       <ScoreBoard xScore={xScore} oScore={oScore} />
+      {gameOver && winner && (
+        <div className="winner-message">
+          {winner === 'X' ? 'X is the winner' : 'O is the winner'}
+        </div>
+      )}
       <Board board={board} onClick={handleBoxClick} />
+      <button className="button" onClick={reset}>
+        Reset Turn
+      </button>
+      <button className="button" onClick={restartGame}>
+        Restart Game
+      </button>
     </div>
   );
 }

@@ -2,11 +2,11 @@ import React from 'react'
 import Box from '../Box/Box'
 import "./Board.css"
 
-const Board = ({board, onClick, id}) => {
+const Board = ({board, onClick}) => {
   return(
      <div class = "board">
      {board.map((item,id) =>(
-      <Box id = {id}value = {item} onClick={()=>onClick(id)}/>
+      <Box key   = {id}value = {item} onClick={()=>onClick(id)}/>
      ))}
   </div>
   );
