@@ -93,6 +93,11 @@ function App() {
       <footer>
         <p>&copy; 2023 BONE CHILLER.</p>
       </footer>
+      <h3>Developed by 
+      <a href="https://www.linkedin.com/in/mohamed-siddiq-m-154682225/">
+        <img src='assets/linkedin-74cb2f55.svg'alt width="25px" height="15px"></img> 
+       </a>
+      </h3>
     </div>
   );
 }
